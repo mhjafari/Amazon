@@ -17,10 +17,13 @@ labels = {'primary';'clear';'agriculture' ...
 % Load train image tags
 load('tags.mat')
 
+mkdir('photos')
+
 for j = 1:size(labels,1)
     
     % Find indexes based on the labels
     [notTag,tag]=findTag(image_name,tags,char(labels(j)));
+    
     mkdir(strcat('photos/',char(labels(j))))
     mkdir(strcat('photos/',char(labels(j)),'/',char(labels(j))))
     mkdir(strcat('photos/',char(labels(j)),'/non',char(labels(j))))
